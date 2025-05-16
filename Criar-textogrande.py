@@ -11,13 +11,13 @@ palavras = [
 
 arquivo_saida = "arquivo_grande.txt"
 
-total_palavras = 100_000_000
-tamanho_bloco = 1_000_000 
+total_palavras = 1_000_000
+tamanho_linha = 100 
 
 with open(arquivo_saida, 'w', encoding='utf-8') as f:
-    for i in range(0, total_palavras, tamanho_bloco):
-        bloco = random.choices(palavras, k=tamanho_bloco)
-        f.write(' '.join(bloco) + ' ')
-        print(f"Bloco {i//tamanho_bloco + 1} concluído")
+    for i in range(0, total_palavras, tamanho_linha):
+        bloco = random.choices(palavras, k=tamanho_linha)
+        f.write(' '.join(bloco) + '\n')
+        print(f"Bloco {i//tamanho_linha + 1} concluído")
 
 print(f"Arquivo '{arquivo_saida}' criado com sucesso contendo {total_palavras} palavras.")
